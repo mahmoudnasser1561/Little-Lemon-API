@@ -8,6 +8,7 @@ import { SignUp } from './pages/SignUp';
 import { Profile } from './pages/Profile';
 import { Cart } from './pages/Cart';
 import { Checkout } from './pages/Checkout';
+import { MyOrders } from './pages/MyOrders';
 import { OrderDetail } from './pages/OrderDetail';
 
 export default function App() {
@@ -40,6 +41,14 @@ export default function App() {
           element={
             <RequireAuth>
               <Checkout />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <RequireAuth>
+              <MyOrders />
             </RequireAuth>
           }
         />

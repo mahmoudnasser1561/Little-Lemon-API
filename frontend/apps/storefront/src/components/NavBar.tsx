@@ -29,6 +29,11 @@ export function NavBar() {
         <Link to="/" className="text-text">
           Menu
         </Link>
+        {!isLoading && user && (
+          <Link to="/orders" className="text-text">
+            My orders
+          </Link>
+        )}
       </div>
       <div className="flex items-center gap-4">
         <Link
