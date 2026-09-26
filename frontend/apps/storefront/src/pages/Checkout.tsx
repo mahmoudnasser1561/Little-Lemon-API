@@ -3,6 +3,13 @@ import { Button, Card } from '@little-lemon/ui';
 import { useCart } from '../hooks/useCart';
 import { useCreateOrder } from '../hooks/useOrders';
 
+const today = new Date().toLocaleDateString(undefined, {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
 export function Checkout() {
   const cartQuery = useCart();
   const createOrder = useCreateOrder();
@@ -73,7 +80,7 @@ export function Checkout() {
                 <line x1="12" y1="8" x2="12.01" y2="8" />
               </svg>
               <p className="text-text-secondary text-sm">
-                Order date is always set by the server at the moment you place the order.
+                Placing your order today, {today}.
               </p>
             </Card>
 
