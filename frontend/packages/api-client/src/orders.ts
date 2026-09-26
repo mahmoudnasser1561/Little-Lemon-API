@@ -1,6 +1,14 @@
 import { request } from './http';
 import type { Paginated } from './types';
 
+export interface OrderLineItem {
+  order: number;
+  menuitem: number | null;
+  title: string | null;
+  quantity: number;
+  price: string;
+}
+
 export interface Order {
   id: number;
   user: number;
@@ -8,6 +16,7 @@ export interface Order {
   status: boolean;
   date: string;
   total: string;
+  orderitem: OrderLineItem[];
 }
 
 export const orders = {

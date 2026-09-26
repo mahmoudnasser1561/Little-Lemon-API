@@ -26,32 +26,23 @@ export function OrderDetail() {
 
             <div className="h-px bg-border" />
 
+            <div className="flex flex-col gap-2">
+              {orderQuery.data.orderitem.map((line, i) => (
+                <div key={i} className="flex items-center justify-between text-sm">
+                  <span className="text-text-secondary">
+                    {line.title ?? 'Removed menu item'} × {line.quantity}
+                  </span>
+                  <span>${line.price}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="h-px bg-border" />
+
             <div className="flex items-center justify-between font-semibold text-[18px]">
               <span>Total</span>
               <span className="tabular-nums">${orderQuery.data.total}</span>
             </div>
-
-            <Card className="p-4 bg-surface-alt border-none flex gap-3">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-text-secondary flex-shrink-0 mt-0.5"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="16" x2="12" y2="12" />
-                <line x1="12" y1="8" x2="12.01" y2="8" />
-              </svg>
-              <p className="text-text-secondary text-sm">
-                The API doesn't return individual line items for an order yet, so only the order total and status are
-                shown here.
-              </p>
-            </Card>
 
             <Link to="/orders" className="text-sm text-text-secondary text-center">
               Back to my orders

@@ -7,7 +7,7 @@ export type { CategoryPayload } from './categories';
 export { cart } from './cart';
 export type { Cart, CartLine } from './cart';
 export { orders } from './orders';
-export type { Order } from './orders';
+export type { Order, OrderLineItem } from './orders';
 export { auth } from './auth';
 export type { SignupPayload, ProfileUpdate, SetPasswordPayload } from './auth';
 export { parseFormErrors } from './errors';
