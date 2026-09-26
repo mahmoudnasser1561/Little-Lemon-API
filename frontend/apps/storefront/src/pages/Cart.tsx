@@ -80,9 +80,9 @@ export function Cart() {
               <span>Total</span>
               <span className="tabular-nums">${cartQuery.data.total}</span>
             </div>
-            <Button className="w-full" disabled title="Checkout is a separate, upcoming piece of Phase 4">
-              Checkout
-            </Button>
+            <Link to="/checkout">
+              <Button className="w-full">Checkout</Button>
+            </Link>
             <button
               type="button"
               onClick={() => clearCart.mutate()}

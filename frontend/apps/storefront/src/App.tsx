@@ -7,6 +7,7 @@ import { Login } from './pages/Login';
 import { SignUp } from './pages/SignUp';
 import { Profile } from './pages/Profile';
 import { Cart } from './pages/Cart';
+import { Checkout } from './pages/Checkout';
 
 export default function App() {
   return (
@@ -30,6 +31,14 @@ export default function App() {
           element={
             <RequireAuth>
               <Cart />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <Checkout />
             </RequireAuth>
           }
         />
