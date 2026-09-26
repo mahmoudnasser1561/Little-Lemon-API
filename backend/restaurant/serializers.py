@@ -48,12 +48,17 @@ class MenuItemSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'price', 'featured', 'category', 'category_id', 'image']
         
 class OrderItemSerializer(serializers.ModelSerializer):
+    title = serializers.SerializerMethodField()
+
     class Meta:
         model = OrderItem
-        fields = ['order', 'menuitem', 'quantity', 'price']
+        fields = ['order', 'menuitem', 'title', 'quantity', 'price']
+
+    def get_title(self, obj):
+        return obj.menuitem.title if obj.menuitem else None
 
 class OrderSerializer(serializers.ModelSerializer):
-    orderitem = OrderItemSerializer(many=True, read_only=True, source='order')
+    orderitem = OrderItemSerializer(many=True, read_only=True, source='orderitem_set')
 
     class Meta:
         model = Order

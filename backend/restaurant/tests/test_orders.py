@@ -113,13 +113,13 @@ class CheckoutTests(OrderTestCase):
         self.add_to_cart(client, expensive, 2)
         self.assertLess(self.check_out(client).status_code, 500)
 
-    @known_bug('B14')
     def test_an_order_shows_the_products_that_were_ordered(self):
         client = self.client_for(self.alice)
         self.add_to_cart(client, self.salad, 2)
         order_id = self.check_out(client).data['id']
         detail = client.get(f'{ORDERS}/{order_id}').data
-        self.assertEqual(len(detail.get('items') or detail.get('orderitem') or []), 1)
+        [line] = detail['orderitem']
+        self.assertEqual((line['title'], line['quantity']), (self.salad.title, 2))
 
     def test_deleting_a_menu_item_keeps_the_order_history(self):
         """B13: the order line survives with its already-snapshotted price/quantity intact;
