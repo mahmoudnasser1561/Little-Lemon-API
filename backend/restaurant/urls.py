@@ -20,17 +20,7 @@ urlpatterns = [
     ),
     
     path(
-        'menu-items/<int:pk>', 
+        'menu-items/<int:pk>',
         views.SingleMenuItemView.as_view()
-    ),
-    
-    path(
-        'orders',
-        views.OrderView.as_view()
-    ),
-    
-    path(
-        'orders/<int:pk>', 
-        views.SingleOrderView.as_view()
     ),
 ]

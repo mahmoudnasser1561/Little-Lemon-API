@@ -28,6 +28,7 @@ urlpatterns = [
     path("api/", include("restaurant.urls")),
     path("api/", include("cart.urls")),
     path("api/", include("delivery_crew.urls")),
+    path("api/", include("checkout.urls")),
 
     # djoser endpoints
     path("api/", include("djoser.urls")),
