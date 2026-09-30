@@ -4,7 +4,8 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from django.utils import timezone
 from .permissions import IsManager, IsDeliveryCrew
-from .models import Category, MenuItem, Order, OrderItem
+from .models import Category, MenuItem
+from checkout.models import Order, OrderItem
 from .serializers import CategorySerializer, DeliveryCrewOrderUpdateSerializer, MenuItemSerializer, OrderSerializer, OrderUpdateSerializer, UserSerializer
 from . import caching
 from cart.services import get_cart_items, get_cart_total, clear_cart
@@ -13,7 +14,7 @@ from delivery_crew.services import is_delivery_crew
 # Manager Group Management
 class GroupViewSet(viewsets.ViewSet):
     permission_classes = [IsManager]
-    
+
     # GET /api/groups/manager/users
     def list(self, request):
         users = User.objects.all().filter(groups__name='Manager')

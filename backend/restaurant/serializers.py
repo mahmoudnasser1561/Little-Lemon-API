@@ -1,8 +1,9 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from djoser.serializers import UserSerializer as DjoserUserSerializer
-from .models import Category, MenuItem, OrderItem, Order
+from .models import Category, MenuItem
 from delivery_crew.services import is_delivery_crew
+from checkout.models import Order, OrderItem
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -46,7 +47,7 @@ class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuItem
         fields = ['id', 'title', 'price', 'featured', 'category', 'category_id', 'image']
-        
+
 class OrderItemSerializer(serializers.ModelSerializer):
     title = serializers.SerializerMethodField()
 

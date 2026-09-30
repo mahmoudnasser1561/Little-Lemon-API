@@ -4,7 +4,8 @@ from rest_framework import status
 
 from cart.models import Cart
 from LittleLemonAPI.testing import BaseAPITestCase, known_bug
-from restaurant.models import MenuItem, Order, OrderItem
+from restaurant.models import MenuItem
+from checkout.models import Order, OrderItem
 
 CART = '/api/cart/menu-items'
 ORDERS = '/api/orders'
