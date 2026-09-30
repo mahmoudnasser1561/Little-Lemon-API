@@ -6,7 +6,8 @@ from django.utils import timezone
 from .permissions import IsManager, IsDeliveryCrew
 from .models import Category, MenuItem
 from checkout.models import Order, OrderItem
-from .serializers import CategorySerializer, DeliveryCrewOrderUpdateSerializer, MenuItemSerializer, OrderSerializer, OrderUpdateSerializer, UserSerializer
+from checkout.serializers import DeliveryCrewOrderUpdateSerializer, OrderSerializer, OrderUpdateSerializer
+from .serializers import CategorySerializer, MenuItemSerializer, UserSerializer
 from . import caching
 from cart.services import get_cart_items, get_cart_total, clear_cart
 from delivery_crew.services import is_delivery_crew
