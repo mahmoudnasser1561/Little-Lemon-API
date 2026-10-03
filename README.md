@@ -18,7 +18,7 @@ repo.
 ## Architecture
 
 ```
-Little-Lemon-API/
+little-lemon-platform/
 ├── backend/                  Django REST API
 │   ├── restaurant/           catalog, categories, users, roles
 │   ├── cart/                 per-user cart
